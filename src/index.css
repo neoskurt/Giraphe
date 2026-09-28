@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: 251 243 228;
+  --color-surface: 255 251 243;
+  --color-sunken: 243 231 208;
+  --color-ink: 61 42 24;
+  --color-ink-secondary: 107 85 64;
+  --color-ink-muted: 156 138 114;
+  --color-line: 227 213 188;
+  --color-terracotta: 201 97 44;
+  --color-terracotta-hover: 169 78 32;
+  --color-terracotta-soft: 241 220 200;
+  --color-danger: 179 69 44;
+  --color-danger-soft: 244 221 210;
+}
+
+:root.dark {
+  --color-cream: 32 24 17;
+  --color-surface: 43 32 24;
+  --color-sunken: 37 27 20;
+  --color-ink: 243 231 210;
+  --color-ink-secondary: 201 183 156;
+  --color-ink-muted: 140 122 99;
+  --color-line: 74 57 42;
+  --color-terracotta: 227 138 76;
+  --color-terracotta-hover: 240 160 102;
+  --color-terracotta-soft: 58 44 30;
+  --color-danger: 224 120 92;
+  --color-danger-soft: 58 34 26;
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans;
+    background-image: radial-gradient(rgb(var(--color-ink) / 0.035) 0.6px, transparent 0.6px);
+    background-size: 14px 14px;
+    transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1), color 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: 'Fraunces Variable', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(var(--color-terracotta) / 0.28);
+    color: rgb(var(--color-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-terracotta));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-ink) / 0.18);
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
